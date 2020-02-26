@@ -9,6 +9,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.filehandler.entity.FileMetaData;
@@ -17,6 +18,7 @@ import com.filehandler.exception.FileRetrivalException;
 import com.filehandler.repository.FileRepository;
 import com.filehandler.service.FileService;
 
+@Service
 public class FileServiceImpl implements FileService {
 	
 	@Value("${file.upload.path}")
@@ -65,7 +67,7 @@ public class FileServiceImpl implements FileService {
 	
 	//retrieve file metadata by fileId
 	public FileMetaData findById(Long id) {
-		Optional<FileMetaData> metaData = fileRepository.findById(id.intValue());
+		Optional<FileMetaData> metaData = fileRepository.findById(id);
 		
 		if(metaData.isPresent()) {
 			return metaData.get();

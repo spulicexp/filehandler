@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.filehandler.entity.FileMetaData;
 
 @Repository
-public interface FileRepository extends CrudRepository<FileMetaData, Integer>{
+public interface FileRepository extends CrudRepository<FileMetaData, Long>{
 	
 }
